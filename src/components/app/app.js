@@ -45,13 +45,15 @@ export default class App extends Component {
     };
 
     onAddItem = (text) => {
-        const newItem = this.createTodoItem(text);
+        if (text.length) {
+            const newItem = this.createTodoItem(text);
 
-        this.setState(({todoData}) => {
-            return {
-                todoData: [...todoData, newItem]
-            };
-        });
+            this.setState(({todoData}) => {
+                return {
+                    todoData: [...todoData, newItem]
+                };
+            });
+        }
     };
 
     toggleProperty(arr, id, propName) {
@@ -66,7 +68,7 @@ export default class App extends Component {
             newItem,
             ...arr.slice(idx + 1)
         ];
-    }
+    };
 
     onToggleImportant = (id) => {
         this.setState(({todoData}) => {
