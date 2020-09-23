@@ -16,7 +16,7 @@ const TodoList = ({todos, onDeleted}) => {
                     {...itemProps}
                     onDeleted={() => onDeleted(id)}/>
             </li>
-        )
+        );
     });
 
     return (
